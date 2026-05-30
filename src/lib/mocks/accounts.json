@@ -1,0 +1,39 @@
+[
+  {
+    "id": "acct-001",
+    "userId": "user-001",
+    "name": "Eagle Current",
+    "type": "current",
+    "status": "active",
+    "balance": 4823.5,
+    "currency": "GBP",
+    "accountNumber": "000100010001",
+    "routingNumber": "021000021",
+    "createdAt": "2023-01-15T10:00:00Z"
+  },
+  {
+    "id": "acct-002",
+    "userId": "user-001",
+    "name": "Eagle Savings",
+    "type": "savings",
+    "status": "active",
+    "balance": 18400.0,
+    "currency": "GBP",
+    "accountNumber": "000200020002",
+    "routingNumber": "021000021",
+    "createdAt": "2023-01-15T10:00:00Z"
+  },
+  {
+    "id": "acct-003",
+    "userId": "user-001",
+    "name": "Eagle Platinum Card",
+    "type": "credit",
+    "status": "active",
+    "balance": -1245.6,
+    "currency": "GBP",
+    "accountNumber": "400300030003",
+    "routingNumber": "021000021",
+    "creditLimit": 5000.0,
+    "createdAt": "2023-03-01T10:00:00Z"
+  }
+]

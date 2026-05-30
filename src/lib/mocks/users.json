@@ -1,0 +1,30 @@
+[
+  {
+    "id": "user-001",
+    "email": "demo@eaglebank.com",
+    "firstName": "John",
+    "lastName": "Smith",
+    "phone": "+(44) 07890747118",
+    "createdAt": "2023-01-15T10:00:00Z",
+    "address": {
+      "line1": "2 Hope Street",
+      "city": "Liverpool",
+      "postcode": "L3 457",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "id": "user-002",
+    "email": "alex.morgan@example.com",
+    "firstName": "Alex",
+    "lastName": "Morgan",
+    "phone": "+(44) 07890747118",
+    "createdAt": "2023-01-15T10:00:00Z",
+    "address": {
+      "line1": "742 Evergreen Terrace",
+      "city": "London",
+      "postcode": "W1A 123",
+      "country": "United Kingdom"
+    }
+  }
+]
