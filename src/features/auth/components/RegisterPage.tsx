@@ -10,8 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SubmitButton } from "@/components/ui/submit-button";
 
-type FormValues = RegisterFormValues;
-
 export function RegisterPage() {
   const navigate = useNavigate();
   const setAuth = useAuthStore((s) => s.setAuth);
@@ -23,11 +21,11 @@ export function RegisterPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({
+  } = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
   });
 
-  const onSubmit = async (values: FormValues) => {
+  const onSubmit = async (values: RegisterFormValues) => {
     setIsLoading(true);
     setError(null);
     try {

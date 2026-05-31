@@ -92,7 +92,7 @@ export async function getMe(
       throw new ApiRequestError("UNAUTHORIZED", "Session expired.", 401);
     }
 
-    return user; // ← TypeScript now knows this is User, not User | undefined
+    return user;
   }, options);
 }
 

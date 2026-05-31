@@ -55,18 +55,11 @@ export function resetMockConfig(): void {
 
 // ─── Core fetch primitive ─────────────────────────────────────────────────────
 
-function randomDelayMs(): number {
-  return (
-    config.delayMs +
-    Math.floor(Math.random() * (config.delayMs - config.delayMs + 1))
-  );
-}
-
 export async function mockFetch<T>(
   handler: () => T,
   options: MockFetchOptions = {},
 ): Promise<T> {
-  await sleep(randomDelayMs());
+  await sleep(config.delayMs);
 
   // Per-call flag takes precedence over global config.
   // Pass simulateError: false to explicitly bypass global error injection.

@@ -75,7 +75,6 @@ function StatCardSkeleton() {
   );
 }
 
-// Shared by account rows (circle=false) and transaction rows (circle=true)
 function RowSkeleton({ circle = false }: { circle?: boolean }) {
   return (
     <div className="flex items-center gap-3 px-6 py-4">
@@ -94,20 +93,13 @@ function RowSkeleton({ circle = false }: { circle?: boolean }) {
   );
 }
 
-// ─── Helper ───────────────────────────────────────────────────────────────────
-
-function getGreeting() {
-  const h = new Date().getHours();
-  if (h < 12) return "Good morning";
-  if (h < 18) return "Good afternoon";
-  return "Good evening";
-}
-
 // ─── DashboardPage ────────────────────────────────────────────────────────────
 
 export function DashboardPage() {
   const navigate = useNavigate();
   const user = use(UserContext);
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
 
   const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: ["dashboard"],
@@ -200,10 +192,9 @@ export function DashboardPage() {
   // ── Success ──────────────────────────────────────────────────────
   return (
     <div className="p-6 lg:p-8 max-w-[1800px] space-y-8">
-      {/* Welcome — full width, above the grid */}
       <header>
         <h1 className="text-2xl font-bold text-foreground">
-          {getGreeting()}, {user?.firstName}
+          {greeting}, {user?.firstName}
         </h1>
         <p className="text-muted-foreground mt-0.5">
           Here's your financial overview for this month.
@@ -211,9 +202,7 @@ export function DashboardPage() {
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_100px] gap-8 items-start">
-        {/* ── Left column: main content ────────────────────────── */}
         <div className="space-y-8">
-          {/* Summary cards */}
           <section aria-label="Financial summary">
             <h2 className="text-sm font-medium text-muted-foreground mb-3">
               Overview
@@ -250,7 +239,6 @@ export function DashboardPage() {
             </div>
           </section>
 
-          {/* Accounts */}
           <section aria-label="Your accounts">
             <h2 className="text-sm font-medium text-muted-foreground mb-3">
               Your accounts
@@ -303,7 +291,6 @@ export function DashboardPage() {
             </Card>
           </section>
 
-          {/* Recent transactions */}
           <section aria-label="Recent transactions">
             <h2 className="text-sm font-medium text-muted-foreground mb-3">
               Recent transactions
@@ -355,11 +342,7 @@ export function DashboardPage() {
           </section>
         </div>
 
-        {/* ── Right column / below on mobile: Quick actions ─────── */}
         <aside aria-label="Quick actions" className="space-y-3 mt-4">
-          {/* <h2 className="text-sm font-medium text-muted-foreground">
-            Quick actions
-          </h2> */}
           <div className="grid grid-cols-3 gap-2 lg:grid-cols-1 lg:gap-3">
             <button
               type="button"

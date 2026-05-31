@@ -10,8 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SubmitButton } from "@/components/ui/submit-button";
 
-type FormValues = LoginFormValues;
-
 export function LoginPage() {
   const navigate = useNavigate();
   const setAuth = useAuthStore((s) => s.setAuth);
@@ -23,11 +21,11 @@ export function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({
+  } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = async (values: FormValues) => {
+  const onSubmit = async (values: LoginFormValues) => {
     setIsLoading(true);
     setError(null);
     try {

@@ -106,7 +106,6 @@ export function AccountsPage() {
             >
               <Card className="hover:shadow-card-hover transition-shadow h-full">
                 <CardContent className="p-6">
-                  {/* Icon + status badge */}
                   <div className="flex items-start justify-between mb-4">
                     <div
                       className={cn(
@@ -127,7 +126,6 @@ export function AccountsPage() {
                     </span>
                   </div>
 
-                  {/* Name + type + masked number */}
                   <p className="font-semibold text-foreground leading-snug">
                     {account.name}
                   </p>
@@ -135,7 +133,6 @@ export function AccountsPage() {
                     {cfg.label} · {maskAccountNumber(account.accountNumber)}
                   </p>
 
-                  {/* Balance */}
                   <p
                     className={cn(
                       "text-2xl font-bold tabular-nums mt-4",

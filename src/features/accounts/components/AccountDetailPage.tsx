@@ -160,7 +160,6 @@ export function AccountDetailPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-5xl space-y-6">
-      {/* Back */}
       <Button
         variant="ghost"
         size="sm"
@@ -171,10 +170,8 @@ export function AccountDetailPage() {
         Accounts
       </Button>
 
-      {/* ── Account info card ──────────────────────────────────── */}
       <Card>
         <CardContent className="p-6">
-          {/* Header row */}
           <div className="flex items-start justify-between mb-5">
             <div className="flex items-center gap-3">
               <div
@@ -203,7 +200,6 @@ export function AccountDetailPage() {
             </span>
           </div>
 
-          {/* Balance */}
           <p
             className={cn(
               "text-4xl font-bold tabular-nums mb-6",
@@ -213,7 +209,6 @@ export function AccountDetailPage() {
             {formatCurrency(account.balance)}
           </p>
 
-          {/* Detail grid */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
             <div>
               <p className="text-muted-foreground">Account number</p>
@@ -271,7 +266,6 @@ export function AccountDetailPage() {
         </CardContent>
       </Card>
 
-      {/* ── Transactions ───────────────────────────────────────── */}
       <section>
         <h2 className="text-sm font-medium text-muted-foreground mb-3">
           Transactions
@@ -363,7 +357,6 @@ export function AccountDetailPage() {
                       key={txn.id}
                       className="flex items-center gap-3 px-6 py-4"
                     >
-                      {/* Direction icon */}
                       <div
                         className={cn(
                           "size-9 rounded-full flex items-center justify-center shrink-0",
@@ -377,7 +370,6 @@ export function AccountDetailPage() {
                         )}
                       </div>
 
-                      {/* Description + date */}
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-foreground truncate">
                           {txn.merchantName ?? txn.description}
@@ -387,7 +379,6 @@ export function AccountDetailPage() {
                         </p>
                       </div>
 
-                      {/* Amount + category badge */}
                       <div className="flex flex-col items-end gap-1 shrink-0">
                         <p
                           className={cn(

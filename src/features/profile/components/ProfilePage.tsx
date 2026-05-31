@@ -19,14 +19,13 @@ import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { SubmitButton } from "@/components/ui/submit-button";
 import type { User, Address } from "@/types";
-import type { ProfileFormState } from "../types";
+
+type ProfileFormState =
+  | { status: "idle" }
+  | { status: "saved" }
+  | { status: "error"; message: string };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function getInitials(user: User | null): string {
-  if (!user) return "?";
-  return `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
-}
 
 function validate(fields: {
   firstName: string;
@@ -214,7 +213,6 @@ export function ProfilePage() {
         </p>
       </header>
 
-      {/* Avatar */}
       <div className="flex flex-col items-center gap-2">
         <button
           type="button"
@@ -229,7 +227,9 @@ export function ProfilePage() {
               className="size-20 rounded-full object-cover"
             />
           ) : (
-            getInitials(optimisticProfile)
+            optimisticProfile
+              ? `${optimisticProfile.firstName.charAt(0)}${optimisticProfile.lastName.charAt(0)}`.toUpperCase()
+              : "?"
           )}
         </button>
         <p className="text-xs text-muted-foreground">Click to change photo</p>
@@ -249,7 +249,6 @@ export function ProfilePage() {
         />
       </div>
 
-      {/* Status banners */}
       {state.status === "saved" && (
         <div className="flex items-center gap-2 rounded-md bg-success-50 border border-success-200 px-4 py-3 text-sm text-success-700">
           <CheckCircle2 className="size-4 shrink-0" />
@@ -262,9 +261,7 @@ export function ProfilePage() {
         </div>
       )}
 
-      {/* Form */}
       <form action={formAction} className="space-y-8">
-        {/* Personal information */}
         <Card>
           <CardHeader className="pb-2">
             <h2 className="text-sm font-semibold text-foreground">
@@ -359,7 +356,6 @@ export function ProfilePage() {
           </CardContent>
         </Card>
 
-        {/* Address */}
         <Card>
           <CardHeader className="pb-2">
             <h2 className="text-sm font-semibold text-foreground">Address</h2>
