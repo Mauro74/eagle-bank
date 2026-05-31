@@ -27,7 +27,7 @@ export function RootLayout() {
       <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-brand-800 text-white">
         {/* Logo */}
         <div className="px-6 py-5 border-b border-brand-700">
-          <img src={Logo} className="w-32 mx-auto" />
+          <img src={Logo} className="w-32 mx-auto" alt="Eagle Bank Logo" />
         </div>
 
         {/* Nav */}
@@ -73,7 +73,7 @@ export function RootLayout() {
       <div className="flex flex-col flex-1 min-w-0">
         {/* Mobile top bar */}
         <header className="lg:hidden flex items-center justify-between px-4 h-14 border-b bg-brand-800 text-white shrink-0">
-          <img src={LogoMobile} className="w-28" />
+          <img src={LogoMobile} className="w-28" alt="Eagle Bank Logo" />
           <button
             onClick={handleLogout}
             aria-label="Sign out"

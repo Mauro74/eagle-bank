@@ -209,11 +209,11 @@ export function AccountDetailPage() {
             {formatCurrency(account.balance)}
           </p>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm">
             <div>
-              <p className="text-muted-foreground">Account number</p>
+              <p className="text-muted-foreground">Account no.</p>
               <div className="flex items-center gap-2 mt-0.5">
-                <span className="font-mono text-sm font-medium">
+                <span className="font-mono text-sm font-medium whitespace-nowrap">
                   {showAccountNumber
                     ? account.accountNumber.replace(/(.{4})/g, "$1 ").trim()
                     : `•••• •••• ${account.accountNumber.slice(-4)}`}
@@ -272,7 +272,7 @@ export function AccountDetailPage() {
         </h2>
 
         {/* Controls */}
-        <div className="flex flex-wrap items-center gap-2 mb-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
           {/* Filter toggle */}
           <div className="flex items-center rounded-lg border bg-background p-0.5 gap-0.5">
             {(["all", "credit", "debit"] as const).map((f) => (
@@ -292,10 +292,14 @@ export function AccountDetailPage() {
           </div>
 
           {/* Sort */}
+          <label htmlFor="sort-select" className="sr-only">
+            Sort transactions
+          </label>
           <select
+            id="sort-select"
             value={sort}
             onChange={(e) => updateSort(e.target.value as SortOption)}
-            className="ml-auto text-sm border border-input rounded-md px-3 py-1.5 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className="sm:ml-auto text-sm border border-input rounded-md px-3 py-1.5 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           >
             <option value="date-desc">Newest first</option>
             <option value="date-asc">Oldest first</option>

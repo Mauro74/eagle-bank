@@ -40,18 +40,18 @@ function StatCard({
 }: StatCardProps) {
   return (
     <Card>
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="space-y-1 min-w-0">
-            <p className="text-sm font-medium text-muted-foreground truncate">
-              {title}
-            </p>
-            <p className="text-2xl font-bold tabular-nums truncate">{value}</p>
-          </div>
-          <div className={cn("shrink-0 rounded-xl p-2.5", iconBg)}>
-            <Icon className={cn("size-5", iconColor)} />
+      <CardContent className="p-4 lg:p-6">
+        <div className="flex items-start justify-between mb-3">
+          <p className="text-xs font-medium text-muted-foreground leading-tight">
+            {title}
+          </p>
+          <div className={cn("shrink-0 rounded-xl p-2", iconBg)}>
+            <Icon className={cn("size-4", iconColor)} />
           </div>
         </div>
+        <p className="text-xl lg:text-2xl font-bold tabular-nums leading-tight">
+          {value}
+        </p>
       </CardContent>
     </Card>
   );

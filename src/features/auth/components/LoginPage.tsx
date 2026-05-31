@@ -81,7 +81,7 @@ export function LoginPage() {
             <button
               type="button"
               onClick={() => setShowPassword((p) => !p)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-muted-foreground hover:text-foreground transition-colors"
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? (
@@ -109,7 +109,7 @@ export function LoginPage() {
         No account?{" "}
         <Link
           to="/auth/register"
-          className="text-primary font-medium hover:underline"
+          className="text-primary font-medium hover:underline py-1 inline-block"
         >
           Create one
         </Link>
