@@ -1,3 +1,5 @@
+// GET /api/accounts         → getAccounts()
+// GET /api/accounts/:id     → getAccount(id)
 import { mockFetch, ApiRequestError } from './client'
 import { mockAccounts } from '@/lib/mocks'
 import type { Account, MockFetchOptions } from '@/types'

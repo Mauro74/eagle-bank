@@ -1,3 +1,5 @@
+// GET /api/profile          → getProfile()
+// PUT /api/profile          → updateProfile()
 import { mockFetch, ApiRequestError } from './client'
 import { mockUsers } from '@/lib/mocks'
 import type { User, UpdateProfilePayload, MockFetchOptions, Address } from '@/types'

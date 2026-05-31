@@ -1,3 +1,4 @@
+// GET /api/dashboard        → getDashboard()
 import { mockFetch } from './client'
 import { mockAccounts, mockTransactions } from '@/lib/mocks'
 import type { DashboardSummary, MockFetchOptions } from '@/types'

@@ -1,3 +1,7 @@
+// POST /api/auth/login      → login()
+// POST /api/auth/register   → register()
+// POST /api/auth/logout     → logout()
+// GET  /api/auth/me         → getMe()
 import { mockFetch, ApiRequestError } from "./client";
 import { mockUsers, mockCredentials } from "@/lib/mocks";
 import type {

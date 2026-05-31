@@ -1,3 +1,4 @@
+// GET /api/transactions     → getTransactions(accountId?)
 import { mockFetch, ApiRequestError } from "./client";
 import { mockTransactions } from "@/lib/mocks";
 import type { Transaction, MockFetchOptions } from "@/types";

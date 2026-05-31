@@ -69,6 +69,29 @@ There is no top-level Transactions page in the sidebar. Transactions are always 
 
 ---
 
+## Mock API
+
+### API Endpoint Mapping
+
+The spec defines REST endpoints which are implemented as typed async functions in `src/lib/api/` rather than HTTP routes. Each function replicates the behaviour of its endpoint — correct status codes, error shapes, and response types — using `mockFetch()` to simulate network delay and error states.
+
+| Endpoint                  | Implementation              |
+|---------------------------|-----------------------------|
+| POST /api/auth/login      | `login()` in api/auth.ts      |
+| POST /api/auth/register   | `register()` in api/auth.ts   |
+| POST /api/auth/logout     | `logout()` in api/auth.ts     |
+| GET  /api/auth/me         | `getMe()` in api/auth.ts      |
+| GET  /api/dashboard       | `getDashboard()` in api/dashboard.ts |
+| GET  /api/accounts        | `getAccounts()` in api/accounts.ts   |
+| GET  /api/accounts/:id    | `getAccount(id)` in api/accounts.ts  |
+| GET  /api/transactions    | `getTransactions()` in api/transactions.ts |
+| GET  /api/profile         | `getProfile()` in api/profile.ts     |
+| PUT  /api/profile         | `updateProfile()` in api/profile.ts  |
+
+The function signatures are intentionally identical to what real fetch wrappers would look like — swapping `mockFetch` for real HTTP calls would require changes only inside `src/lib/api/`, with zero impact on components or TanStack Query call sites.
+
+---
+
 ## Accessibility
 
 - Semantic HTML throughout: `<header>`, `<main>`, `<nav>`, `<section>`, `<aside>`, `<form>`, `<button>`
