@@ -78,6 +78,20 @@ There is no top-level Transactions page in the sidebar. Transactions are always 
 - `aria-hidden="true"` on the hidden file input
 - Keyboard navigation via Radix UI primitives (dropdowns, dialogs, tabs) which implement ARIA patterns
 - Focus-visible ring styles on all interactive elements via Tailwind `focus-visible:ring-*`
+- Lighthouse accessibility scores: Login 93, Dashboard 95, Account Detail 88 (post-fixes)
+- `<main>` landmark added to `AuthLayout` for screen reader navigation
+- Sort select has visually hidden label via `sr-only`
+- Touch target sizes increased on interactive elements for WCAG 2.5.5 compliance
+
+---
+
+## Responsive design
+
+- Tested on iPhone 13 Safari (iOS 26)
+- Bottom tab navigation on mobile; sidebar on desktop (`lg+`)
+- Stat cards scale typography at breakpoints (`text-xl` mobile, `text-2xl` desktop) to prevent number truncation
+- Filter and sort controls stack vertically on mobile, inline on `sm+`
+- Account detail grid collapses to single column on small screens, two columns on `sm+`
 
 ---
 
@@ -87,3 +101,4 @@ There is no top-level Transactions page in the sidebar. Transactions are always 
 - **Registered users are session-scoped.** Users created via the register form are added to the in-memory `mockUsers` array and are lost on refresh.
 - **No real file upload.** Clicking the avatar triggers a file picker for UX demonstration, but no image is processed or stored.
 - **Single-user mock.** `getProfile()` and `getDashboard()` always return data for `user-001`. In a real app these calls would be scoped to the authenticated session.
+- **`crypto.randomUUID()` requires a secure context (HTTPS).** On local network testing over HTTP, Safari iOS will throw an error. Fixed with a `Math.random()` UUID fallback — see `generateUUID()` in `auth.ts`.
